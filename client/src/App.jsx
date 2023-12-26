@@ -5,10 +5,12 @@ import About from './pages/About'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import Profile from './pages/Profile'
+import NavBar from './components/NavBar'
 
 const App = () => {
   return (
     <BrowserRouter>
+      <NavBar />
       <Routes>
         <Route path='/' element={ <Home /> }/>
         <Route path='/about' element={ <About /> }/>

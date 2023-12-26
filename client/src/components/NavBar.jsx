@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const NavBar = () => {
   return (
     <div>
-        <div className='flex justify-between px-6 py-6'>
+        <div className='bg-orange-200 flex justify-between px-6 py-6'>
             <Link to='/'>
                 <h1 className='text-4xl font-bold'>Minh Auth App</h1>
             </Link>

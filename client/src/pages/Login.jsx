@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const SignUp = () => {
+const Login = () => {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -16,7 +16,7 @@ const SignUp = () => {
     try {
       setLoading(true);
       setError(false);
-      const res = await fetch('/api/auth/signup', {
+      const res = await fetch('/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -25,12 +25,11 @@ const SignUp = () => {
       });
       const data = await res.json();
       setLoading(false);
-      console.log(data);
       if (data.success === false) {
         setError(true);
         return;
       }
-      navigate('/login');
+      navigate('/');
     } catch (error) {
       setLoading(false);
       setError(true);
@@ -39,20 +38,19 @@ const SignUp = () => {
 
   return (
     <div className='p-4 max-w-lg mx-auto'>
-      <h1 className='text-4xl font-semibold text-center my-8'>Đăng Ký Ngay</h1>
+      <h1 className='text-4xl font-semibold text-center my-8'>Đăng Nhập</h1>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
-        <input type='text' placeholder='Tên người dùng' id='username' className='bg-slate-100 p-3 rounded-lg' onChange={handleChanges} />
         <input type='email' placeholder='Email đăng ký' id='email' className='bg-slate-100 p-3 rounded-lg' onChange={handleChanges} />
         <input type='password' placeholder='Mật khẩu' id='password' className='bg-slate-100 p-3 rounded-lg' onChange={handleChanges} />
 
         <button disabled = {loading} className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-90 disabled:opacity-80'>
-          {loading ? 'Loading...' : 'Đăng Ký'}
+          {loading ? 'Loading...' : 'Đăng Nhập'}
         </button>
       </form>
       <div className='flex gap-2 mt-4'>
-        <p>Bạn đã có tài khoản?</p>
-        <Link to="/login">
-          <span className='text-blue-500'>Đăng nhập</span>
+        <p>Bạn chưa có tài khoản?</p>
+        <Link to="/signup">
+          <span className='text-blue-500'>Đăng ký ngay</span>
         </Link>
       </div>
       <p className='text-red-500 mt-5'>{ error && 'Tên người dùng hoặc email đã tồn tại!' }</p>
@@ -60,4 +58,4 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default Login

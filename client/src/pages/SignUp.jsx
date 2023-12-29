@@ -45,7 +45,7 @@ const SignUp = () => {
         <input type='email' placeholder='Email đăng ký' id='email' className='bg-slate-100 p-3 rounded-lg' onChange={handleChanges} />
         <input type='password' placeholder='Mật khẩu' id='password' className='bg-slate-100 p-3 rounded-lg' onChange={handleChanges} />
 
-        <button disabled = {loading} className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-90 disabled:opacity-80'>
+        <button disabled={loading} className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-90 disabled:opacity-80'>
           {loading ? 'Loading...' : 'Đăng Ký'}
         </button>
       </form>
@@ -55,7 +55,7 @@ const SignUp = () => {
           <span className='text-blue-500'>Đăng nhập</span>
         </Link>
       </div>
-      <p className='text-red-500 mt-5'>{ error && 'Tên người dùng hoặc email đã tồn tại!' }</p>
+      <p className='text-red-500 mt-5'>{error && 'Tên người dùng hoặc email đã tồn tại!'}</p>
     </div>
   )
 }

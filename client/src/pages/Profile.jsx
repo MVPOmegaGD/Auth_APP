@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 const Profile = () => {
   const {currentUser} = useSelector(state => state.user);
   return (
-    <div className='p-3 max-w-lg max-auto'>
+    <div className='p-3 max-w-lg mx-auto'>
       <h1 className='text-3xl font-semibold text-center my-7'>Thông tin cá nhân</h1>
       <form className='flex flex-col gap-8'>
         <img src={currentUser.profilePicture} alt='profile' className='h-24 w-24 self-center cursor-pointer rounded-full object-cover mt-2'/>

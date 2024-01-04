@@ -6,17 +6,20 @@ import SignUp from './pages/SignUp'
 import Profile from './pages/Profile'
 import NavBar from './components/NavBar'
 import Login from './pages/Login'
+import PrivateRoute from './components/PrivateRoute'
 
 const App = () => {
   return (
     <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path='/' element={ <Home /> }/>
-        <Route path='/about' element={ <About /> }/>
-        <Route path='/login' element={ <Login /> }/>
-        <Route path='/signup' element={ <SignUp /> }/>
-        <Route path='/profile' element={ <Profile /> }/>
+        <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route element={<PrivateRoute />}>
+          <Route path='/profile' element={<Profile />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )
